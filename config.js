@@ -3,8 +3,8 @@ var config = {};
 config.debug = process.env.DEBUG || false;
 
 config.mqtt  = {};
-config.mqtt.namespace = process.env.MQTT_NAMESPACE || '#';
-config.mqtt.hostname  = process.env.MQTT_HOSTNAME  || 'localhost';
+config.mqtt.namespace = process.env.MQTT_NAMESPACE || 'bigbear/guest/alpha/beta';
+config.mqtt.hostname  = process.env.MQTT_HOSTNAME  || 'iot.eclipse.org';
 config.mqtt.port      = process.env.MQTT_PORT      || 1883;
 
 config.mongodb = {};
