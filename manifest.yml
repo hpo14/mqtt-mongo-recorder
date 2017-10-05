@@ -8,3 +8,6 @@ applications:
   services:
     - mymongo
     - mymqtt
+  env:
+    MQTT_TOPIC: paas/tampa/pasadena/weather
+    

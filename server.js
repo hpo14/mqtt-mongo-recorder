@@ -26,7 +26,7 @@ var cfenv    = require("cfenv")
 var client   = mqtt.connect(cfenv.getAppEnv().getService('mymqtt').credentials.uri);
 
 client.on('connect', function () {
-    client.subscribe(config.mqtt.namespace);
+    client.subscribe(config.mqtt.topic);
 });
 
 
