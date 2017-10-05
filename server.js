@@ -11,31 +11,24 @@ var mqtt     = require('mqtt');
 var config   = require('./config');
 //var cfenv    = require("cfenv")
 
-//var vcap_services = JSON.parse(process.env.VCAP_SERVICES);
-//console.log('START1------->');
-//console.log(cfenv.getAppEnv().getService('mymongo'));
-//console.log('END------->');
-//console.log('START2------->');
-//console.log(cfenv.getAppEnv().getService('MQTT'));
-console.log(process.env.MONGODB_USER);
-console.log(process.env.MONGODB_PASSWORD);
-console.log(config.mongodb.hostname);
-console.log(config.mongodb.port);
-console.log(config.mongodb.database);
-console.log('mongodb://' + config.mongodb.user + ':' + config.mongodb.password + '@' + config.mongodb.hostname + ':' + config.mongodb.port + '/' + config.mongodb.database);
+//console.log(config.mongodb.user);
+//console.log(config.mongodb.password);
+//console.log(config.mongodb.hostname);
+//console.log(config.mongodb.port);
+//console.log(config.mongodb.database);
+//console.log('mongodb://' + config.mongodb.user + ':' + config.mongodb.password + '@' + config.mongodb.hostname + ':' + config.mongodb.port + '/' + config.mongodb.database);
 
 var mqttUri  = 'mqtt://' + config.mqtt.hostname + ':' + config.mqtt.port;
 //var client   = mqtt.connect(cfenv.getAppEnv().getService('mymqtt').credentials.uri);
 var client   = mqtt.connect(mqttUri);
 
 client.on('connect', function () {
-    client.subscribe(config.mqtt.namespace);
+    client.subscribe(config.mqtt.topic);
 });
 
 
-var mongoUri = 'mongodb://' + process.env.MONGODB_USER + ':' + process.env.MONGODB_PASSWORD + '@' + config.mongodb.hostname + ':' + config.mongodb.port + '/' + config.mongodb.database;
+var mongoUri = 'mongodb://' + config.mongodb.user + ':' + config.mongodb.password + '@' + config.mongodb.hostname + ':' + config.mongodb.port + '/' + config.mongodb.database;
 //var mongoUri = cfenv.getAppEnv().getService('mymongo').credentials.uri
-
 
 mongodb.MongoClient.connect(mongoUri, function(error, database) {
     if(error != null) {
