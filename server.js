@@ -9,6 +9,7 @@
 var mongodb  = require('mongodb');
 var mqtt     = require('mqtt');
 var config   = require('./config');
+var os= require('os');
 //var cfenv    = require("cfenv")
 
 //console.log(config.mongodb.user);
@@ -51,6 +52,8 @@ mongodb.MongoClient.connect(mongoUri, function(error, database) {
         var messageObject = {
             ts: new Date(),
             topic: topic,
+            //container_os_host_name: os.hostname(),
+            //container_os_platform: os.platform(),
             message: message.toString(),
             json: json
         };
