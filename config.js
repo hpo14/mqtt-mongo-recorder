@@ -3,7 +3,7 @@ var config = {};
 config.debug = process.env.DEBUG || false;
 
 config.mqtt  = {};
-config.mqtt.topic     = process.env.MQTT_TOPIC     || 'bigbear/guest/alpha/beta';
+config.mqtt.topic     = process.env.MQTT_TOPIC     || 'mxchip/one/temperature';
 config.mqtt.hostname  = process.env.MQTT_HOSTNAME  || 'iot.eclipse.org';
 config.mqtt.port      = process.env.MQTT_PORT      || 1883;
 
