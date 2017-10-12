@@ -9,5 +9,5 @@ applications:
     - mymongo
     - mymqtt
   env:
-    MQTT_TOPIC: paas/tampa/pasadena/weather
+    MQTT_TOPIC: mxchip/one/temperature
     
