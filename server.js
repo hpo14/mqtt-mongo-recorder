@@ -9,6 +9,7 @@
 var mongodb  = require('mongodb');
 var mqtt     = require('mqtt');
 var config   = require('./config');
+var os= require('os');
 var cfenv    = require("cfenv")
 
 //var vcap_services = JSON.parse(process.env.VCAP_SERVICES);
